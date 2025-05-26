@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Articles Viewer</title>
-  <link rel="stylesheet" href="/static/style.css" />
+    <meta charset="UTF-8">
+    <title>Articles List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <h1>Articles</h1>
-  <ul>
-    {% for title, author in articles %}
-      <li><strong>{{ title }}</strong> by {{ author }}</li>
-    {% endfor %}
-  </ul>
+    <div class="container">
+        <h1>All Articles</h1>
+        {% for article in articles %}
+            <div class="article">
+                <h3>{{ article.title }}</h3>
+                <p class="author">Author: {{ article.author.name }}</p>
+                <p class="magazine">Magazine: {{ article.magazine.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        &copy; 2025 Articles Project
+    </footer>
 </body>
 </html>
